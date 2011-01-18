@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block main %}
+<ul class="inventorynav">
+    <li><a href="../../list/">List items</a></li>
+    <li><a href="/admin/inventory/item/add/">Add item</a></li>
+    <li><a href="/admin/inventory/item/{{item.pk}}/">Edit item</a></li>
+    <li><a href="../../print_sticker/{{item.pk}}/">Print sticker</a></li>
+</ul> 
+<div class="base">
+  <h1>{{item.name}}</h1>
+  <table>
+    <tr><td>Owner:</td><td>{{item.owner}}</td></tr>
+    <tr><td>Location:</td><td>{{item.location}}</td></tr>
+    <tr><td>Description:</td><td>{{item.description}}</td></tr>
+    <tr><td>Added:</td><td>{{item.added}}</td></tr>
+    <tr><td>Last edit:</td><td>{{item.last_edit}}</td></tr>
+    <tr><td>Last view:</td><td>{{item.last_view}}</td></tr>
+    <tr><td>Last barcode:</td><td>{{item.last_barcode}}</td></tr>
+  </table>
+  <h2>Comments</h2>
+  {% for comment in item.item_comments %}
+    <div class="comment">
+      <p>{{comment.comment}}</p>
+      <p class="date">{{comment.date}}</p>
+    </div>
+  {% endfor %}
+  <div class="commentform">
+    <form method="post" action=".">
+      <input type="hidden" name="item" value="{{item.pk}}"/>
+      <textarea rows="20" cols="60" name="comment"></textarea>
+      <input type="submit" name="submit" value="Submit" />
+    </form>
+  </div>
+</div>
+<div class="views">
+  <h3>Views</h3>
+  {% for iv in item.item_views %}
+  <div class="iv {% if iv.barcode%}barcode{% endif %}">
+    <p><b>Date:</b>{{iv.date}}</p>
+    <p><b>IP:</b>{{iv.ip}}</p>
+    <p><b>Host:</b>{{iv.host}}</p>
+    <p><b>User agent:</b>{{iv.user_agent}}</p>
+  </div>  
+  {% endfor %}
+</div>
+  
+{% endblock %}

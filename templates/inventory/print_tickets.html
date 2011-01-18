@@ -1,0 +1,47 @@
+<html>
+ <head>
+  <style type="text/css" media="print,screen">
+    body {
+        text-align: justify;
+    }
+    .listek {
+        position: relative;
+        display: inline-block;
+        width: 6.5cm;
+        height: 3cm;
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+        padding: 0cm 2cm 0cm 0cm;
+    }
+    .listek p {
+        margin:0;
+        padding: 0;
+        font-size: 8pt;
+    }
+    .listek img {
+        position: relative;
+        display: block;
+        float: left;
+        margin: 1px;
+        padding: 0;
+        height: 2.9cm;
+        width: 2.9cm;
+    }
+    .listek .pk {
+        margin-top: .4cm;
+    }
+    
+  </style>
+ </head>
+ <body>
+  {% for item in items %}
+    <div class="listek">
+        <img src="http://chart.apis.google.com/chart?chs=262x262&cht=qr&chl={{baseurl|urlencode}}%2Finventory%2Fbarcode%2F{{item.pk}}%2F&choe=UTF-8"/>
+        <p class="pk">{{item.pk}}</p>
+        <p class="name">{{item.name}}</p>
+        <p class="owner">{{item.owner}}</p>
+        <p class="location">{{item.location}}</p>
+    </div>
+  {% endfor %}
+ </body>
+</html>

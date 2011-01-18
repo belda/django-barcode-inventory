@@ -1,0 +1,85 @@
+@CHARSET "UTF-8";
+
+body {
+    background: url('../images/background.jpg') no-repeat fixed #05090c;
+    color: white;/*#d4f7ff;*/
+}
+
+#main {
+    margin: 100px 100px 0px 100px;
+}
+
+#navigation ul {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: 1px;
+}
+
+#navigation ul li{
+    display: inline-block;
+    border: 1px solid #d4f7ff;
+    border-bottom: 1px solid rgb(6,29,35);
+    margin:0;padding:0;
+    margin-left: 20px;
+    
+}
+a, a:visited {
+    color: #94ff77;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;  
+    color: white;
+}
+#navigation a {
+	background-color: rgba(6,29,35,.75);
+    padding: 3px 10px;
+    line-height: 25px;
+}
+
+#content {
+    display: block;
+    position: relative;
+    width: 800px;
+    min-height: 400px;
+    padding: 30px;
+    background-color: rgba(6,29,35,.75);
+    border: 1px solid #d4f7ff;
+}
+#content h1 {
+    font-size: 15pt;
+    margin-top: 10px;
+}
+#content #qr {
+	position: relative;
+	float: right;
+	margin: 0 20px;
+}
+#content table {
+    width: 500px;	
+}
+#content td input,#content .butt, #content textarea {
+	-moz-border-radius: 4px;
+    border: 1px solid rgba(212,247,255, .75);
+    background-color:   rgba(255,255,255,.6);
+    color: #14263a;
+}
+#content tr { padding-top: 10px;}
+#content td input { width: 250px;}
+#content td {
+    text-align: right;
+}
+#content td:first-child {
+    text-align: left;
+}
+#content .butts td {
+    text-align: center; 
+    margin-top: 15px;
+}
+#content textarea {width: 500px;}
+#content .butt:hover {
+    border: 1px solid rgba(212,247,255, 1);
+    background-color:   rgba(6,29,35, 1);
+    color: white;
+}

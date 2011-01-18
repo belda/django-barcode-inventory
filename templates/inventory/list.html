@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block main %}
+<ul class="inventorynav">
+    <li><a href="/admin/inventory/item/add/">Add item</a></li>
+    <li><a href="../../print_sticker/{{item.pk}}/">Print all stickers</a></li>
+</ul> 
+
+<table class="inventorytable">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Location</th>
+    <th>Last view</th>
+    <th>Last barcode</th>
+  </tr>
+  {% for item in items %}
+  <tr>
+    <td><a href="../detail/{{item.pk}}/">{{item.pk}}</a></td>
+    <td>{{item.name}}</td>
+    <td>{{item.location}}</td>
+    <td>{{item.last_view}}</td>
+    <td>{{item.last_barcode}}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+
+{% endblock %}
